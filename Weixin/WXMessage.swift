@@ -20,5 +20,26 @@ class WXMessage{
     var from: WXUser!
     var isComposing = false
     var isDelay = false
+    var delegate: WXMessageDelegate?
     
+    init(){}
+    
+    init(message: XMPPMessage){
+        self.body = message.body()
+        
+        //正在输入
+        if message.elementForName("composing") != nil {
+            self.isComposing = true
+        }
+        //离线消息
+        if message.elementForName("delay") != nil {
+            self.isDelay = true
+        }
+        //消息正文
+        if let body = message.elementForName("body"){
+            self.body = body.stringValue()
+        }
+        //消息来源
+        self.from = WXUser(message: message)
+    }
 }

@@ -20,5 +20,34 @@ protocol WXUserDelegate{
 //微信用户
 class WXUser {
     var name = ""
-    var isOnline = false
+    var presence = ""
+    var domain = ""
+    var isOnline: Bool{
+        if self.presence == Constants.Available{
+            return true
+        }else{
+            return false
+        }
+    }
+    var fullName: String{
+        return name + "@" + domain
+    }
+
+    var delegate: WXUserDelegate?
+    
+    
+    init(){}
+    
+    init(presence: XMPPPresence){
+        self.name = presence.from().user
+        self.domain = presence.from().domain
+        self.presence = presence.type()
+
+    }
+    init(message: XMPPMessage){
+        self.name = message.from().user
+        self.domain = message.from().domain
+        self.presence = message.type()
+        
+    }
 }

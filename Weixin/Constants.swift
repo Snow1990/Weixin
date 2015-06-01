@@ -24,6 +24,6 @@ class Constants{
     static let Password = "weixinPassword"
     static let Server = "weixinServer"
 
-    
+
     
 }

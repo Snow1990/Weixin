@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
 
     var window: UIWindow?
 
@@ -18,6 +18,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var xmppStream: XMPPStream?
     //通道是否开启
     var isOpen = false
+      
+    
+    //收到状态
+    func xmppStream(sender: XMPPStream!, didReceivePresence presence: XMPPPresence!) {
+        //我自己的用户名
+        let myUserName = sender.myJID.user
+        
+        //好友的状态
+        let wxuser = WXUser(presence: presence)
+        
+        if wxuser.name != myUserName {
+            if wxuser.isOnline {
+                wxuser.delegate?.isOn(wxuser)
+            }else{
+                wxuser.delegate?.isOff(wxuser)
+            }
+        }
+
+    }
+    
+    //收到消息
+    func xmppStream(sender: XMPPStream!, didReceiveMessage message: XMPPMessage!) {
+        if message.isChatMessage() {
+            
+            var msg = WXMessage(message: message)
+            msg.delegate?.newMessage(msg)
+        }
+    }
+    
+    
+    //连接成功
+    func xmppStreamDidConnect(sender: XMPPStream!) {
+        isOpen = true
+        
+        let password = NSUserDefaults.standardUserDefaults().stringForKey(Constants.Password)
+
+        
+        //验证密码
+        xmppStream?.authenticateWithPassword(password, error: nil)
+    }
+    //验证成功
+    func xmppStreamDidAuthenticate(sender: XMPPStream!) {
+        //上线
+        goOnline()
+    }
+    
+    
     
     //建立通道
     func buildStream(){
