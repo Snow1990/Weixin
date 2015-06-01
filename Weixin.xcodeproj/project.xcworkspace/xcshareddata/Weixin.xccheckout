@@ -34,23 +34,23 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>02184E68B235AB5A28EE74C3C5F144D3ADA9DCF2</key>
-		<string>../..XMPPFramework/Vendor/facebook-ios-sdk/vendor/OCHamcrest/Source/XcodeCoverage/</string>
+		<string>../..XMPPFramework/Vendor/facebook-ios-sdk/vendor/OCHamcrest/Source/XcodeCoverage</string>
 		<key>38C2A0D4F62B675E8C16C8BC1437C7753846C8AC</key>
-		<string>../..XMPPFramework/Vendor/facebook-ios-sdk/vendor/OHHTTPStubs/</string>
+		<string>../..XMPPFramework/Vendor/facebook-ios-sdk/vendor/OHHTTPStubs</string>
 		<key>68A4F87027FCBEE68AE0B711A7B7B76457830FF2</key>
 		<string>../..</string>
 		<key>A20D666FF4B08EFE53F147818C2D4D17E2242912</key>
-		<string>../..XMPPFramework/Vendor/facebook-ios-sdk/</string>
+		<string>../..XMPPFramework/Vendor/facebook-ios-sdk</string>
 		<key>B775552D1BBEEADC6A0BBB2FD048B6AA26CB309D</key>
-		<string>../..XMPPFramework/</string>
+		<string>../..XMPPFramework</string>
 		<key>DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8</key>
-		<string>../..XMPPFramework/Vendor/facebook-ios-sdk/vendor/OHHTTPStubs/OHHTTPStubs/UnitTests/AFNetworking/</string>
+		<string>../..XMPPFramework/Vendor/facebook-ios-sdk/vendor/OHHTTPStubs/OHHTTPStubs/UnitTests/AFNetworking</string>
 		<key>E4BCE3AE6B24E41B9BCE312FF3B0B6CD0B8B8025</key>
-		<string>../..XMPPFramework/Vendor/facebook-ios-sdk/vendor/OCMock/</string>
+		<string>../..XMPPFramework/Vendor/facebook-ios-sdk/vendor/OCMock</string>
 		<key>F03E09D7108B6B558326B4A7FA105E304FD0FE55</key>
-		<string>../..XMPPFramework/Vendor/facebook-ios-sdk/vendor/OCHamcrest/</string>
+		<string>../..XMPPFramework/Vendor/facebook-ios-sdk/vendor/OCHamcrest</string>
 		<key>F086E1440BB0A83BA7D3B487CD8500D25A1AEAB0</key>
-		<string>../..Weixin/</string>
+		<string>../..Weixin</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Snow1990/Weixin.git</string>
@@ -114,7 +114,15 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>F086E1440BB0A83BA7D3B487CD8500D25A1AEAB0</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Weixin</string>
+			<string>WeixinWeixin</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B775552D1BBEEADC6A0BBB2FD048B6AA26CB309D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WeixinXMPPFramework</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
@@ -123,14 +131,6 @@
 			<string>02184E68B235AB5A28EE74C3C5F144D3ADA9DCF2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>XcodeCoverage</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B775552D1BBEEADC6A0BBB2FD048B6AA26CB309D</string>
-			<key>IDESourceControlWCCName</key>
-			<string>XMPPFramework</string>
 		</dict>
 	</array>
 </dict>
