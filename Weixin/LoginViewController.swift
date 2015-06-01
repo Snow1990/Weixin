@@ -9,7 +9,12 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+    @IBOutlet weak var userNameTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var serverTF: UITextField!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,14 +27,20 @@ class LoginViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if sender as? UIButton == self.doneButton{
+            NSUserDefaults.standardUserDefaults().setValue(userNameTF.text, forKey: Constants.UserName)
+            NSUserDefaults.standardUserDefaults().setValue(passwordTF.text, forKey: Constants.Password)
+            NSUserDefaults.standardUserDefaults().setValue(serverTF.text, forKey: Constants.Server)
+        }
+        
+        
+        
     }
-    */
+
 
 }

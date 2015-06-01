@@ -14,8 +14,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-
+    //通道
+    var xmppStream: XMPPStream?
+    //通道是否开启
+    var isOpen = false
+    
+    //建立通道
+    func buildStream(){
+        xmppStream = XMPPStream()
+        xmppStream?.addDelegate(self, delegateQueue: dispatch_get_main_queue())
+    }
+    
+    //发送上线状态
+    func goOnline(){
+        var presence = XMPPPresence()
+        xmppStream?.sendElement(presence)
+    }
+    
+    //发送下线状态
+    func goOffline(){
+        var presence = XMPPPresence(type: Constants.Unavailable)
+        xmppStream?.sendElement(presence)
+    }
+    
+    
+    //连接服务器
+    func connect() -> Bool{
+        
+        buildStream()
+        
+        if xmppStream!.isConnected(){
+            return true
+        }
+        
+        let userName = NSUserDefaults.standardUserDefaults().stringForKey(Constants.UserName)
+        let password = NSUserDefaults.standardUserDefaults().stringForKey(Constants.Password)
+        let server = NSUserDefaults.standardUserDefaults().stringForKey(Constants.Server)
+        
+        if (userName != nil && password != nil){
+            //通道的用户名
+            xmppStream?.myJID = XMPPJID.jidWithString(userName)
+            xmppStream?.hostName = server!
+            
+            xmppStream?.connectWithTimeout(5000, error: nil)
+            
+        }
+        
+        
+        
+        return false
+    }
+    //断开连接
+    func disConnect(){
+        goOffline()
+        xmppStream?.disconnect()
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true

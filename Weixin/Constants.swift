@@ -15,4 +15,15 @@ class Constants{
     
     static let BListReusableCellID = "buddyListCell"
     
+    
+    static let Available = "available"
+    static let Unavailable = "unavailable"
+
+    
+    static let UserName = "weixinUserName"
+    static let Password = "weixinPassword"
+    static let Server = "weixinServer"
+
+    
+    
 }

@@ -103,6 +103,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="c1m-wF-Z40" id="E7o-3T-G2o"/>
+                        <outlet property="passwordTF" destination="hCb-Uu-Bhg" id="kEW-5H-xrc"/>
+                        <outlet property="serverTF" destination="hCb-Uu-Bhg" id="stA-pI-viU"/>
+                        <outlet property="userNameTF" destination="LFi-Fp-gAd" id="q50-rR-WJZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2o-dr-dJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ur7-i4-eHE" userLabel="Exit" sceneMemberID="exit"/>
