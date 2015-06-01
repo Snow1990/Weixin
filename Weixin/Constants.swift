@@ -28,4 +28,6 @@ class Constants{
 
     //图片名称
     static let LoginBGImg = "LoginBackground"
+    static let OnlineIco = "在线"
+    static let OfflineIco = "下线"
 }

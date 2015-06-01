@@ -9,7 +9,47 @@
 import UIKit
 
 class BuudyListTableViewController: UITableViewController {
+    
+    //已登入
+    var logged = false
+    //好友列表
+    var userList = [WXUser]()
+    //未读消息
+    var unreadMessages = [WXMessage]()
+    
+//    var a = NSMutableOrderedSet()
+    
+    @IBOutlet weak var myStatus: UIBarButtonItem!
+    //获取总代理
+    func zdl() -> AppDelegate {
+        return UIApplication.sharedApplication().delegate as! AppDelegate
+    }
 
+    //登入
+    func login(){
+        //清空数组
+        unreadMessages.removeAll(keepCapacity: false)
+        userList.removeAll(keepCapacity: false)
+        
+        zdl().connect()
+        myStatus.image = UIImage(named: Constants.OnlineIco)
+        logged = true
+        
+        self.tableView.reloadData()
+    }
+    
+    //登出
+    func logoff(){
+        zdl().disConnect()
+        myStatus.image = UIImage(named: Constants.OfflineIco)
+        logged = false
+        
+        self.tableView.reloadData()
+
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

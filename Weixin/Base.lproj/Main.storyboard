@@ -34,6 +34,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="myStatus" destination="blS-Os-U3a" id="9CB-oO-P8I"/>
                         <segue destination="466-pH-MFF" kind="show" identifier="toChatSegue" id="OZc-7v-HQ4"/>
                     </connections>
                 </tableViewController>
