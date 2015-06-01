@@ -83,13 +83,11 @@
 		87A4A50C1B1C4A6100E36140 /* Weixin */ = {
 			isa = PBXGroup;
 			children = (
+				87A4A5161B1C4A6100E36140 /* Main.storyboard */,
 				87A4A50F1B1C4A6100E36140 /* AppDelegate.swift */,
 				87A4A5341B1C505100E36140 /* LoginViewController.swift */,
 				87A4A5361B1C523300E36140 /* ChatViewController.swift */,
-				87A4A5161B1C4A6100E36140 /* Main.storyboard */,
-				87A4A5191B1C4A6100E36140 /* Images.xcassets */,
 				87A4A5321B1C4FB100E36140 /* BuudyListTableViewController.swift */,
-				87A4A51B1B1C4A6100E36140 /* LaunchScreen.xib */,
 				87A4A5111B1C4A6100E36140 /* Weixin.xcdatamodeld */,
 				87A4A50D1B1C4A6100E36140 /* Supporting Files */,
 			);
@@ -99,6 +97,8 @@
 		87A4A50D1B1C4A6100E36140 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				87A4A51B1B1C4A6100E36140 /* LaunchScreen.xib */,
+				87A4A5191B1C4A6100E36140 /* Images.xcassets */,
 				87A4A50E1B1C4A6100E36140 /* Info.plist */,
 			);
 			name = "Supporting Files";
