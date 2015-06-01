@@ -9,7 +9,10 @@
 import Foundation
 
 class Constants{
-    static let ToLoginSegue = "ToLoginSegue"
+    static let ToLoginSegue = "toLoginSegue"
+    static let ToChatSegue = "toChatSegue"
     
+    
+    static let BListReusableCellID = "buddyListCell"
     
 }

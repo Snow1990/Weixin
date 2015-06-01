@@ -94,4 +94,8 @@ class BuudyListTableViewController: UITableViewController {
     }
     */
 
+    
+    @IBAction func unwindToBList(segue: UIStoryboardSegue){
+    
+    }
 }

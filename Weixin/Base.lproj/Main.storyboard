@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mZA-ju-wfs">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="buddyListCell" id="mZA-ju-wfs">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mZA-ju-wfs" id="hp8-zy-6aG">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -29,10 +29,13 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" id="blS-Os-U3a"/>
                         <barButtonItem key="rightBarButtonItem" title="登录" id="bHE-hl-wIF">
                             <connections>
-                                <segue destination="WjN-eN-vKW" kind="presentation" id="7bD-FX-g6h"/>
+                                <segue destination="WjN-eN-vKW" kind="presentation" identifier="toLoginSegue" id="7bD-FX-g6h"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="466-pH-MFF" kind="show" identifier="toChatSegue" id="OZc-7v-HQ4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Mn-ch-Lvc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,11 +92,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="用户登录" id="wpm-St-PMt">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="N4O-2k-dIk"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="c1m-wF-Z40"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="N4O-2k-dIk">
+                            <connections>
+                                <segue destination="ur7-i4-eHE" kind="unwind" unwindAction="unwindToBList:" id="8e0-xQ-2Hw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="c1m-wF-Z40">
+                            <connections>
+                                <segue destination="ur7-i4-eHE" kind="unwind" unwindAction="unwindToBList:" id="1uT-dM-pvX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2o-dr-dJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ur7-i4-eHE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3303" y="317"/>
         </scene>
