@@ -69,6 +69,8 @@
 		87A4BEF41B1C6BC300E36140 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BCA41B1C6BC300E36140 /* DDXMLNode.m */; };
 		87A4BEF51B1C6BC300E36140 /* build-libidn.sh in Resources */ = {isa = PBXBuildFile; fileRef = 87A4BCA81B1C6BC300E36140 /* build-libidn.sh */; };
 		87A4BEF61B1C6BC300E36140 /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A4BCAA1B1C6BC300E36140 /* libidn.a */; };
+		87A4BF5B1B1C776600E36140 /* WXMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF5A1B1C776600E36140 /* WXMessage.swift */; };
+		87A4BF5D1B1C778E00E36140 /* WXUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF5C1B1C778E00E36140 /* WXUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +201,8 @@
 		87A4BCA91B1C6BC300E36140 /* idn-int.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "idn-int.h"; sourceTree = "<group>"; };
 		87A4BCAA1B1C6BC300E36140 /* libidn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libidn.a; sourceTree = "<group>"; };
 		87A4BCAB1B1C6BC300E36140 /* stringprep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringprep.h; sourceTree = "<group>"; };
+		87A4BF5A1B1C776600E36140 /* WXMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXMessage.swift; sourceTree = "<group>"; };
+		87A4BF5C1B1C778E00E36140 /* WXUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +258,8 @@
 			children = (
 				87A4A5161B1C4A6100E36140 /* Main.storyboard */,
 				87A4A50F1B1C4A6100E36140 /* AppDelegate.swift */,
+				87A4BF5A1B1C776600E36140 /* WXMessage.swift */,
+				87A4BF5C1B1C778E00E36140 /* WXUser.swift */,
 				87A4A5341B1C505100E36140 /* LoginViewController.swift */,
 				87A4A5361B1C523300E36140 /* ChatViewController.swift */,
 				87A4A5321B1C4FB100E36140 /* BuudyListTableViewController.swift */,
@@ -692,6 +698,7 @@
 				87A4BCB11B1C6BC300E36140 /* XMPPSCRAMSHA1Authentication.m in Sources */,
 				87A4BCC11B1C6BC300E36140 /* GCDMulticastDelegate.m in Sources */,
 				87A4A5101B1C4A6100E36140 /* AppDelegate.swift in Sources */,
+				87A4BF5D1B1C778E00E36140 /* WXUser.swift in Sources */,
 				87A4BCCB1B1C6BC300E36140 /* DDLog.m in Sources */,
 				87A4BEF21B1C6BC300E36140 /* DDXMLDocument.m in Sources */,
 				87A4A5351B1C505100E36140 /* LoginViewController.swift in Sources */,
@@ -716,6 +723,7 @@
 				87A4BCC91B1C6BC300E36140 /* DDASLLogger.m in Sources */,
 				87A4BCB31B1C6BC300E36140 /* XMPPXOAuth2Google.m in Sources */,
 				87A4BCC51B1C6BC300E36140 /* XMPPStringPrep.m in Sources */,
+				87A4BF5B1B1C776600E36140 /* WXMessage.swift in Sources */,
 				87A4BEF11B1C6BC300E36140 /* NSString+DDXML.m in Sources */,
 				87A4BCBE1B1C6BC300E36140 /* XMPPPresence.m in Sources */,
 			);
