@@ -16,6 +16,7 @@
 		87A4A5331B1C4FB100E36140 /* BuudyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4A5321B1C4FB100E36140 /* BuudyListTableViewController.swift */; };
 		87A4A5351B1C505100E36140 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4A5341B1C505100E36140 /* LoginViewController.swift */; };
 		87A4A5371B1C523300E36140 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4A5361B1C523300E36140 /* ChatViewController.swift */; };
+		87A4A5391B1C53BB00E36140 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4A5381B1C53BB00E36140 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		87A4A5321B1C4FB100E36140 /* BuudyListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuudyListTableViewController.swift; sourceTree = "<group>"; };
 		87A4A5341B1C505100E36140 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		87A4A5361B1C523300E36140 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		87A4A5381B1C53BB00E36140 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				87A4A5341B1C505100E36140 /* LoginViewController.swift */,
 				87A4A5361B1C523300E36140 /* ChatViewController.swift */,
 				87A4A5321B1C4FB100E36140 /* BuudyListTableViewController.swift */,
+				87A4A5381B1C53BB00E36140 /* Constants.swift */,
 				87A4A5111B1C4A6100E36140 /* Weixin.xcdatamodeld */,
 				87A4A50D1B1C4A6100E36140 /* Supporting Files */,
 			);
@@ -226,6 +229,7 @@
 				87A4A5351B1C505100E36140 /* LoginViewController.swift in Sources */,
 				87A4A5371B1C523300E36140 /* ChatViewController.swift in Sources */,
 				87A4A5131B1C4A6100E36140 /* Weixin.xcdatamodeld in Sources */,
+				87A4A5391B1C53BB00E36140 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
