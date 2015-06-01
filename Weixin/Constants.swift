@@ -23,7 +23,9 @@ class Constants{
     static let UserName = "weixinUserName"
     static let Password = "weixinPassword"
     static let Server = "weixinServer"
+    static let AutoLogin = "weixinAutoLogin"
 
 
-    
+    //图片名称
+    static let LoginBGImg = "LoginBackground"
 }

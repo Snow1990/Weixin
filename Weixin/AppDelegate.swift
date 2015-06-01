@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
     var xmppStream: XMPPStream?
     //通道是否开启
     var isOpen = false
-      
+    
     
     //收到状态
     func xmppStream(sender: XMPPStream!, didReceivePresence presence: XMPPPresence!) {

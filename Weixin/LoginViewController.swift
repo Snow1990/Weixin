@@ -14,9 +14,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var serverTF: UITextField!
     @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var aotoLoginSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: Constants.LoginBGImg)!)
 
         // Do any additional setup after loading the view.
     }
@@ -32,10 +34,15 @@ class LoginViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if sender as? UIButton == self.doneButton{
+        if sender as? UIBarButtonItem == self.doneButton{
             NSUserDefaults.standardUserDefaults().setValue(userNameTF.text, forKey: Constants.UserName)
             NSUserDefaults.standardUserDefaults().setValue(passwordTF.text, forKey: Constants.Password)
             NSUserDefaults.standardUserDefaults().setValue(serverTF.text, forKey: Constants.Server)
+            NSUserDefaults.standardUserDefaults().setBool(aotoLoginSwitch.on, forKey: Constants.AutoLogin)
+            
+            
+            //同步用户配置
+            NSUserDefaults.standardUserDefaults().synchronize()
         }
         
         
