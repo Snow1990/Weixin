@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BDA06689-7CBE-4443-98FD-19CA106F9915</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Weixin</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>68A4F87027FCBEE68AE0B711A7B7B76457830FF2</key>
+		<string>https://github.com/Snow1990/Weixin.git</string>
+		<key>F086E1440BB0A83BA7D3B487CD8500D25A1AEAB0</key>
+		<string>https://github.com/Snow1990/Weixin.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Weixin.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>68A4F87027FCBEE68AE0B711A7B7B76457830FF2</key>
+		<string>../..</string>
+		<key>F086E1440BB0A83BA7D3B487CD8500D25A1AEAB0</key>
+		<string>../..Weixin/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Snow1990/Weixin.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>68A4F87027FCBEE68AE0B711A7B7B76457830FF2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>68A4F87027FCBEE68AE0B711A7B7B76457830FF2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Weixin</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F086E1440BB0A83BA7D3B487CD8500D25A1AEAB0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Weixin</string>
+		</dict>
+	</array>
+</dict>
+</plist>

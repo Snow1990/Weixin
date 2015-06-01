@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		87A4A5101B1C4A6100E36140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4A50F1B1C4A6100E36140 /* AppDelegate.swift */; };
 		87A4A5131B1C4A6100E36140 /* Weixin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87A4A5111B1C4A6100E36140 /* Weixin.xcdatamodeld */; };
-		87A4A5151B1C4A6100E36140 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4A5141B1C4A6100E36140 /* ViewController.swift */; };
 		87A4A5181B1C4A6100E36140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A4A5161B1C4A6100E36140 /* Main.storyboard */; };
 		87A4A51A1B1C4A6100E36140 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A4A5191B1C4A6100E36140 /* Images.xcassets */; };
 		87A4A51D1B1C4A6100E36140 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A4A51B1B1C4A6100E36140 /* LaunchScreen.xib */; };
 		87A4A5291B1C4A6100E36140 /* WeixinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4A5281B1C4A6100E36140 /* WeixinTests.swift */; };
+		87A4A5331B1C4FB100E36140 /* BuudyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4A5321B1C4FB100E36140 /* BuudyListTableViewController.swift */; };
+		87A4A5351B1C505100E36140 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4A5341B1C505100E36140 /* LoginViewController.swift */; };
+		87A4A5371B1C523300E36140 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4A5361B1C523300E36140 /* ChatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +33,15 @@
 		87A4A50E1B1C4A6100E36140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87A4A50F1B1C4A6100E36140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87A4A5121B1C4A6100E36140 /* Weixin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weixin.xcdatamodel; sourceTree = "<group>"; };
-		87A4A5141B1C4A6100E36140 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		87A4A5171B1C4A6100E36140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87A4A5191B1C4A6100E36140 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		87A4A51C1B1C4A6100E36140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		87A4A5221B1C4A6100E36140 /* WeixinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeixinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A4A5271B1C4A6100E36140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87A4A5281B1C4A6100E36140 /* WeixinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeixinTests.swift; sourceTree = "<group>"; };
+		87A4A5321B1C4FB100E36140 /* BuudyListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuudyListTableViewController.swift; sourceTree = "<group>"; };
+		87A4A5341B1C505100E36140 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		87A4A5361B1C523300E36140 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				87A4A50F1B1C4A6100E36140 /* AppDelegate.swift */,
-				87A4A5141B1C4A6100E36140 /* ViewController.swift */,
+				87A4A5341B1C505100E36140 /* LoginViewController.swift */,
+				87A4A5361B1C523300E36140 /* ChatViewController.swift */,
 				87A4A5161B1C4A6100E36140 /* Main.storyboard */,
 				87A4A5191B1C4A6100E36140 /* Images.xcassets */,
+				87A4A5321B1C4FB100E36140 /* BuudyListTableViewController.swift */,
 				87A4A51B1B1C4A6100E36140 /* LaunchScreen.xib */,
 				87A4A5111B1C4A6100E36140 /* Weixin.xcdatamodeld */,
 				87A4A50D1B1C4A6100E36140 /* Supporting Files */,
@@ -215,8 +221,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87A4A5151B1C4A6100E36140 /* ViewController.swift in Sources */,
+				87A4A5331B1C4FB100E36140 /* BuudyListTableViewController.swift in Sources */,
 				87A4A5101B1C4A6100E36140 /* AppDelegate.swift in Sources */,
+				87A4A5351B1C505100E36140 /* LoginViewController.swift in Sources */,
+				87A4A5371B1C523300E36140 /* ChatViewController.swift in Sources */,
 				87A4A5131B1C4A6100E36140 /* Weixin.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +421,7 @@
 				87A4A52E1B1C4A6100E36140 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		87A4A52F1B1C4A6100E36140 /* Build configuration list for PBXNativeTarget "WeixinTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +430,7 @@
 				87A4A5311B1C4A6100E36140 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
