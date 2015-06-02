@@ -17,14 +17,11 @@ class InputToolBar: UIView {
     var smileBtn = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
     var addBtn = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
     
-//    var delegate: FHInputToolbarDelegate?
     
     override init(frame: CGRect) {
         
-        
         super.init(frame: frame)
         
-//        self.frame = CGRectMake(frame.origin.x, frame.origin.y, UIScreen.mainScreen().bounds.width, 44)
         let screenRect : CGRect = UIScreen.mainScreen().bounds
         
         self.backgroundImageView.frame = CGRectMake(0, 0, self.frame.width, self.frame.height)
@@ -43,17 +40,14 @@ class InputToolBar: UIView {
         self.textField.borderStyle = UITextBorderStyle.None
         self.textField.backgroundColor = UIColor.clearColor()
         self.textField.placeholder = "请输入..."
-//        self.textField.delegate = self
         addSubview(self.textField)
         
         self.smileBtn.frame = CGRectMake(screenRect.width - 34 * 2 - 5 * 3, 5, 34, 34)
         self.smileBtn.setBackgroundImage(UIImage(named: Constants.ChatSmileBtnIco), forState: UIControlState.Normal)
-//        self.smileBtn.addTarget(self, action: "onRightBtnTapped:", forControlEvents: UIControlEvents.TouchUpInside)
         addSubview(self.smileBtn)
         
         self.addBtn.frame = CGRectMake(screenRect.width - 34 - 5, 5, 34, 34)
         self.addBtn.setBackgroundImage(UIImage(named: Constants.ChatAddBtnIco), forState: UIControlState.Normal)
-//        self.addBtn.addTarget(self, action: "onRightBtnTapped:", forControlEvents: UIControlEvents.TouchUpInside)
         addSubview(self.addBtn)
     }
     
@@ -61,18 +55,7 @@ class InputToolBar: UIView {
         super.init(coder: aDecoder)
     }
     
-//    func onRightBtnTapped(sender: AnyObject){
-//        self.delegate?.onInputBtnTapped(self.textField.text)
-//        self.textField.text = ""
-//    }
-    
-//    //textField delegate
-//    func textFieldShouldReturn(textField: UITextField) -> Bool {
-//        
-//        self.textField.resignFirstResponder()
-//        
-//        return false
-//    }
+
     
     /*
     // Only override drawRect: if you perform custom drawing.

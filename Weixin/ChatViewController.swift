@@ -115,6 +115,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.view.addSubview(tableView)
         self.view.addSubview(inputToolbar)
+        scrollToLastRow()
         
         
         //keyboard notitication
@@ -130,7 +131,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // MARK: - Table view data source
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -156,6 +156,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return reuseableCell
     }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let msg = messages[indexPath.row]
         return MessageTableViewCell.heightForCell(msg)
@@ -178,7 +179,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         return false
     }
     
-  
 
     // MARK: - Keyboard hides or show
     func keyboardWillShow(notify: NSNotification) {
@@ -214,16 +214,14 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         scrollToLastRow()
     }
     
-    // MARK: - 手势操作
-
     
+    // MARK: - 手势操作
     func tableViewTap(sender: UITapGestureRecognizer) {
         self.inputToolbar.textField.resignFirstResponder()
     }
 
 
     // MARK: - 公共方法
-    
     //获取总代理
     func zdl() -> AppDelegate {
         return UIApplication.sharedApplication().delegate as! AppDelegate

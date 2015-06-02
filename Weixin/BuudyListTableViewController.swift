@@ -150,33 +150,43 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.BuddyListReusableCellID, forIndexPath: indexPath) as! UITableViewCell
         
-        //未读消息数目
-        var unreads = 0
+        
+        var reuseableCell: BuddyTableViewCell!
+        if let cell = tableView.dequeueReusableCellWithIdentifier(Constants.BuddyListReusableCellID) as? BuddyTableViewCell{
+            reuseableCell = cell
+        }else{
+            reuseableCell = BuddyTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: Constants.BuddyListReusableCellID)
+        }
+        
+        
         
         //取得好友信息
         let user = userList[indexPath.row]
         
+        //好友名称
+        reuseableCell.textLabel?.text = user.name
+        
+        //未读消息数目
+        var unreads = 0
         for msg in unreadMessages {
             if user.name == msg.from.name {
                 unreads++
             }
         }
+        reuseableCell.notificationView?.addNotifications(unreads)
         
-        //好友名称
-        cell.textLabel?.text = user.name + "(\(unreads))"
         
         //根据好友状态，切换单元格图像
         if user.isOnline {
-            cell.imageView?.image = UIImage(named: Constants.OnlineIco)
+            reuseableCell.imageView?.image = UIImage(named: Constants.OnlineIco)
             
         }else {
-            cell.imageView?.image = UIImage(named: Constants.OfflineIco)
+            reuseableCell.imageView?.image = UIImage(named: Constants.OfflineIco)
         }
 
         
-        return cell
+        return reuseableCell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
