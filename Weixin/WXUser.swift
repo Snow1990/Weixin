@@ -14,7 +14,6 @@ protocol WXUserDelegate{
     func isOn(user:WXUser)
     func isOff(user:WXUser)
     func meOn(user:WXUser)
-//    func meOff(user:WXUser)
     
 }
 

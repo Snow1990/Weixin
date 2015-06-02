@@ -24,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
     
     //收到状态
     func xmppStream(sender: XMPPStream!, didReceivePresence presence: XMPPPresence!) {
-        //我自己的用户名
-        let myUserName = sender.myJID.user
         
         //好友的状态
         let wxuser = WXUser(presence: presence)
@@ -37,19 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
                 wxUserDelegate?.isOff(wxuser)
             }
         }
-//        if wxuser.name == myselfUser.name {
-//            if wxuser.isOnline {
-//                wxUserDelegate?.meOn(wxuser)
-//            }else{
-//                wxUserDelegate?.meOff(wxuser)
-//            }
-//        }else {
-//            if wxuser.isOnline {
-//                wxUserDelegate?.isOn(wxuser)
-//            }else{
-//                wxUserDelegate?.isOff(wxuser)
-//            }
-//        }
 
     }
     
@@ -65,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
     
     //连接成功
     func xmppStreamDidConnect(sender: XMPPStream!) {
-//        isOpen = true
         //验证密码
         xmppStream?.authenticateWithPassword(myselfUser.password!, error: nil)
     }

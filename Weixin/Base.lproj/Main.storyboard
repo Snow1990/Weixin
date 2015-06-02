@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZBc-eK-gvi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--好友列表-->
@@ -197,17 +196,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ses-yI-lva">
-                                <rect key="frame" x="16" y="64" width="568" height="401"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ses-yI-lva">
+                                <rect key="frame" x="0.0" y="64" width="600" height="401"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ses-yI-lva" firstAttribute="leading" secondItem="bHw-UB-InJ" secondAttribute="leadingMargin" id="KH6-jQ-cUk"/>
-                            <constraint firstItem="Ses-yI-lva" firstAttribute="top" secondItem="IDe-v5-Ctl" secondAttribute="bottom" id="eK9-ng-vnL"/>
-                            <constraint firstItem="6Bs-o3-ahu" firstAttribute="top" secondItem="Ses-yI-lva" secondAttribute="bottom" constant="135" id="gS6-y5-6TS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ses-yI-lva" secondAttribute="trailing" id="s3m-3c-gQk"/>
+                            <constraint firstAttribute="trailing" secondItem="Ses-yI-lva" secondAttribute="trailing" id="Gtx-i9-cND"/>
+                            <constraint firstItem="Ses-yI-lva" firstAttribute="leading" secondItem="bHw-UB-InJ" secondAttribute="leading" id="KUd-fK-hsS"/>
+                            <constraint firstItem="Ses-yI-lva" firstAttribute="top" secondItem="IDe-v5-Ctl" secondAttribute="bottom" id="TjY-io-XxB"/>
+                            <constraint firstItem="6Bs-o3-ahu" firstAttribute="top" secondItem="Ses-yI-lva" secondAttribute="bottom" constant="135" id="azb-Vd-ze3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="聊天" id="GXv-wW-yyb">

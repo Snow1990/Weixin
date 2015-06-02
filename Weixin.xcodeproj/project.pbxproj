@@ -71,6 +71,8 @@
 		87A4BEF61B1C6BC300E36140 /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A4BCAA1B1C6BC300E36140 /* libidn.a */; };
 		87A4BF5B1B1C776600E36140 /* WXMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF5A1B1C776600E36140 /* WXMessage.swift */; };
 		87A4BF5D1B1C778E00E36140 /* WXUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF5C1B1C778E00E36140 /* WXUser.swift */; };
+		87A4BF631B1D9A8200E36140 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF621B1D9A8200E36140 /* MessageTableViewCell.swift */; };
+		87A4BF661B1D9E6000E36140 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF651B1D9E6000E36140 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +205,8 @@
 		87A4BCAB1B1C6BC300E36140 /* stringprep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringprep.h; sourceTree = "<group>"; };
 		87A4BF5A1B1C776600E36140 /* WXMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXMessage.swift; sourceTree = "<group>"; };
 		87A4BF5C1B1C778E00E36140 /* WXUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUser.swift; sourceTree = "<group>"; };
+		87A4BF621B1D9A8200E36140 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		87A4BF651B1D9E6000E36140 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,13 +260,12 @@
 		87A4A50C1B1C4A6100E36140 /* Weixin */ = {
 			isa = PBXGroup;
 			children = (
+				87A4BF611B1D9A1600E36140 /* Model */,
+				87A4BF601B1D9A0100E36140 /* Controller */,
+				87A4BF641B1D9A9000E36140 /* View */,
 				87A4A5161B1C4A6100E36140 /* Main.storyboard */,
 				87A4A50F1B1C4A6100E36140 /* AppDelegate.swift */,
-				87A4BF5A1B1C776600E36140 /* WXMessage.swift */,
-				87A4BF5C1B1C778E00E36140 /* WXUser.swift */,
-				87A4A5341B1C505100E36140 /* LoginViewController.swift */,
-				87A4A5361B1C523300E36140 /* ChatViewController.swift */,
-				87A4A5321B1C4FB100E36140 /* BuudyListTableViewController.swift */,
+				87A4BF651B1D9E6000E36140 /* Extension.swift */,
 				87A4A5381B1C53BB00E36140 /* Constants.swift */,
 				87A4A5111B1C4A6100E36140 /* Weixin.xcdatamodeld */,
 				87A4A50D1B1C4A6100E36140 /* Supporting Files */,
@@ -574,6 +577,33 @@
 			path = libidn;
 			sourceTree = "<group>";
 		};
+		87A4BF601B1D9A0100E36140 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				87A4A5341B1C505100E36140 /* LoginViewController.swift */,
+				87A4A5361B1C523300E36140 /* ChatViewController.swift */,
+				87A4A5321B1C4FB100E36140 /* BuudyListTableViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		87A4BF611B1D9A1600E36140 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				87A4BF5A1B1C776600E36140 /* WXMessage.swift */,
+				87A4BF5C1B1C778E00E36140 /* WXUser.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		87A4BF641B1D9A9000E36140 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				87A4BF621B1D9A8200E36140 /* MessageTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -706,12 +736,14 @@
 				87A4BCAD1B1C6BC300E36140 /* XMPPDeprecatedDigestAuthentication.m in Sources */,
 				87A4BCCF1B1C6BC300E36140 /* DDMultiFormatter.m in Sources */,
 				87A4BCB61B1C6BC300E36140 /* NSXMLElement+XMPP.m in Sources */,
+				87A4BF631B1D9A8200E36140 /* MessageTableViewCell.swift in Sources */,
 				87A4BCBF1B1C6BC300E36140 /* XMPPStream.m in Sources */,
 				87A4BCCD1B1C6BC300E36140 /* DDContextFilterLogFormatter.m in Sources */,
 				87A4BEF31B1C6BC300E36140 /* DDXMLElement.m in Sources */,
 				87A4BCC71B1C6BC300E36140 /* GCDAsyncSocket.m in Sources */,
 				87A4BEF41B1C6BC300E36140 /* DDXMLNode.m in Sources */,
 				87A4BCC21B1C6BC300E36140 /* RFImageToDataTransformer.m in Sources */,
+				87A4BF661B1D9E6000E36140 /* Extension.swift in Sources */,
 				87A4BCCA1B1C6BC300E36140 /* DDFileLogger.m in Sources */,
 				87A4BCBC1B1C6BC300E36140 /* XMPPModule.m in Sources */,
 				87A4BCB71B1C6BC300E36140 /* XMPPConstants.m in Sources */,

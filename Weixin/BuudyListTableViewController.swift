@@ -10,36 +10,22 @@ import UIKit
 
 class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMessageDelegate {
     
-//    //已登入
-//    var logged = false
     //好友列表
-    var userList = [WXUser](){
-        didSet{
-            self.tableView.reloadData()
-        }
-    }
+    var userList = [WXUser]()
     //未读消息
     var unreadMessages = [WXMessage]()
     
     //当前好友
     var currentBuddy: WXUser?
     
-//    var a = NSMutableOrderedSet()
-    
     @IBOutlet weak var myStatus: UIBarButtonItem!
     @IBAction func log(sender: UIBarButtonItem) {
         if zdl().myselfUser.isOnline {
             //下线
             logoff()
-            //图片改为离线
-//            sender.title = "离线"
-//            sender.image = UIImage(named: Constants.OnlineIco)
         }else {
             //上线
             login()
-            //图片改为上线
-//            sender.title = "在线"
-//            sender.image = UIImage(named: Constants.OfflineIco)
         }
     }
     
@@ -67,7 +53,7 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
         //如果找不到，添加新用户
         userList.append(user)
         
-//        self.tableView.reloadData()
+        self.tableView.reloadData()
         
     }
     //好友下线
@@ -87,7 +73,7 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
         //如果找不到，添加新用户
         userList.append(user)
         
-//        self.tableView.reloadData()
+        self.tableView.reloadData()
         
     }
     //收到消息
@@ -108,10 +94,7 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
         userList.removeAll(keepCapacity: false)
         zdl().connect()
 
-        
-//        self.tableView.reloadData()
-
-        
+        self.tableView.reloadData()
         
     }
     
@@ -123,7 +106,6 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
         for user in userList {
             user.presence = Constants.Unavailable
         }
-        
         
         self.tableView.reloadData()
 
@@ -138,7 +120,7 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
         //取自动登录
         let aotoLogin = NSUserDefaults.standardUserDefaults().boolForKey(Constants.AutoLogin)
         
-        //如果配置了用户名和自动登录
+        //如果配置了自动登录
         if aotoLogin {
             
             self.login()
@@ -161,20 +143,16 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return userList.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.BListReusableCellID, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.BuddyListReusableCellID, forIndexPath: indexPath) as! UITableViewCell
         
         //未读消息数目
         var unreads = 0
@@ -211,7 +189,6 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
         //跳转到聊天视图
         self.performSegueWithIdentifier(Constants.ToChatSegue, sender: self)
         
-        
     }
     
 
@@ -241,7 +218,6 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
                 }
                 
                 //把相应的未读消息移除
-//                self.removeValueFromArray(currentBuddy!, array: &unreadMessages)
                 unreadMessages = unreadMessages.filter{ $0.from.name != self.currentBuddy!.name }
                 
                 self.tableView.reloadData()
@@ -250,7 +226,6 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
     }
     
 
-    
     @IBAction func unwindToBList(segue: UIStoryboardSegue){
         //如果点击了登录按钮
         if let source = segue.sourceViewController as? LoginViewController {

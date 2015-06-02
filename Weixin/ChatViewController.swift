@@ -96,11 +96,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: Constants.ChatBgDefaultImg)!)
         zdl().wxMessageDelegate = self
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
-        // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -120,21 +121,25 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var reuseableCell: UITableViewCell!
-        if let cell = tableView.dequeueReusableCellWithIdentifier(Constants.ChatListReusableCellID) as? UITableViewCell{
+        var reuseableCell: MessageTableViewCell!
+        if let cell = tableView.dequeueReusableCellWithIdentifier(Constants.ChatListReusableCellID) as? MessageTableViewCell{
             reuseableCell = cell
         }else{
-            reuseableCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: Constants.ChatListReusableCellID)
+            reuseableCell = MessageTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: Constants.ChatListReusableCellID)
         }
         
         let msg = messages[indexPath.row]
         
-        reuseableCell.textLabel?.text = msg.body
+        reuseableCell.selectionStyle = UITableViewCellSelectionStyle.None
+        reuseableCell.setupMessageCell(msg)
         
         
         return reuseableCell
     }
-    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let msg = messages[indexPath.row]
+        return MessageTableViewCell.heightForCell(msg)
+    }
     
     //获取总代理
     func zdl() -> AppDelegate {
