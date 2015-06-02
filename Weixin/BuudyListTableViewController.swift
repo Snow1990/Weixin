@@ -53,11 +53,23 @@ class BuudyListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //取用户名
+        let myUserName = NSUserDefaults.standardUserDefaults().stringForKey(Constants.UserName)
+        //取自动登录
+        let aotoLogin = NSUserDefaults.standardUserDefaults().boolForKey(Constants.AutoLogin)
+        
+        //如果配置了用户名和自动登录
+        if (myUserName != nil && aotoLogin){
+            
+            self.login()
+            
+            self.navigationItem.title = myUserName! + "的好友"
+            
+        //其他情况，跳转到登录视图
+        }else{
+            self.performSegueWithIdentifier(Constants.ToLoginSegue, sender: self)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -136,6 +148,18 @@ class BuudyListTableViewController: UITableViewController {
 
     
     @IBAction func unwindToBList(segue: UIStoryboardSegue){
-    
+        //如果点击了登录按钮
+        if let source = segue.sourceViewController as? UINavigationController {
+            if let loginController = source.viewControllers[0] as? LoginViewController {
+                if loginController.requireLogin{
+                    //注销前一个用户
+                    logoff()
+                    //登录
+                    login()
+                }
+            }
+        }
+        
+        
     }
 }

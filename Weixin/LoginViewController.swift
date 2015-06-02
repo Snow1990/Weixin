@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    
+    var requireLogin = false
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var serverTF: UITextField!
@@ -40,6 +42,7 @@ class LoginViewController: UIViewController {
             NSUserDefaults.standardUserDefaults().setValue(serverTF.text, forKey: Constants.Server)
             NSUserDefaults.standardUserDefaults().setBool(aotoLoginSwitch.on, forKey: Constants.AutoLogin)
             
+            requireLogin = true
             
             //同步用户配置
             NSUserDefaults.standardUserDefaults().synchronize()
