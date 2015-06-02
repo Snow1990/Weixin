@@ -36,8 +36,6 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
             myStatus.title = "在线"
         }
     }
-    
-    
     //好友上线
     func isOn(user: WXUser) {
         //逐条查找
@@ -76,6 +74,7 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
         self.tableView.reloadData()
         
     }
+    
     //收到消息
     func newMessage(message: WXMessage) {
         //如果消息有正文，加入到未读消息组
@@ -85,7 +84,6 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
             self.tableView.reloadData()
         }
     }
-    
 
     //登入
     func login(){
@@ -112,7 +110,6 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         zdl().wxUserDelegate = self
@@ -131,6 +128,7 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
         }
         
     }
+    
     override func viewDidAppear(animated: Bool) {
         zdl().wxMessageDelegate = self
     }

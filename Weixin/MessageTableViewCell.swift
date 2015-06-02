@@ -43,7 +43,7 @@ class MessageTableViewCell: UITableViewCell {
         let labelSize: CGSize = UILabel.sizeOfString(message.body, font: Constants.ChatFont, maxWidth: screenRect.width - 10 - 20 - Constants.AvatarSize.width * 2)
         
         var hight = labelSize.height + 20 > Constants.AvatarSize.height ? labelSize.height + 20 : Constants.AvatarSize.height
-        return hight + 10
+        return hight + 20
        
     }
     

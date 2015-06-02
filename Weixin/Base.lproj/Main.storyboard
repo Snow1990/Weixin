@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--好友列表-->
+        <!--微信-->
         <scene sceneID="hvu-Br-eh8">
             <objects>
                 <tableViewController id="9aD-M9-q56" customClass="BuudyListTableViewController" customModule="Weixin" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,9 +25,8 @@
                             <outlet property="delegate" destination="9aD-M9-q56" id="J4S-U7-x8W"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="好友列表" id="0GY-PQ-h0W">
+                    <navigationItem key="navigationItem" title="微信" id="0GY-PQ-h0W">
                         <barButtonItem key="leftBarButtonItem" enabled="NO" title="离线" id="blS-Os-U3a">
-                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="log:" destination="9aD-M9-q56" id="eIS-Aa-JbZ"/>
                             </connections>
@@ -190,36 +189,9 @@
                     <view key="view" contentMode="scaleToFill" id="bHw-UB-InJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pyk-fw-8Jq">
-                                <rect key="frame" x="16" y="550" width="568" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ses-yI-lva">
-                                <rect key="frame" x="0.0" y="64" width="600" height="401"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Ses-yI-lva" secondAttribute="trailing" id="Gtx-i9-cND"/>
-                            <constraint firstItem="Ses-yI-lva" firstAttribute="leading" secondItem="bHw-UB-InJ" secondAttribute="leading" id="KUd-fK-hsS"/>
-                            <constraint firstItem="Ses-yI-lva" firstAttribute="top" secondItem="IDe-v5-Ctl" secondAttribute="bottom" id="TjY-io-XxB"/>
-                            <constraint firstItem="6Bs-o3-ahu" firstAttribute="top" secondItem="Ses-yI-lva" secondAttribute="bottom" constant="135" id="azb-Vd-ze3"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="聊天" id="GXv-wW-yyb">
-                        <barButtonItem key="rightBarButtonItem" title="发送" id="vdI-rb-u55">
-                            <connections>
-                                <action selector="send:" destination="UOE-hu-Fo8" id="bXd-Fv-1Nd"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="messageTF" destination="Pyk-fw-8Jq" id="2Ne-gE-LlE"/>
-                        <outlet property="tableView" destination="Ses-yI-lva" id="Sf4-QU-bom"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="聊天" id="GXv-wW-yyb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ynv-93-gX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
