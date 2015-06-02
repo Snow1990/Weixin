@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BuudyListTableViewController: UITableViewController {
+class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMessageDelegate {
     
     //已登入
     var logged = false
@@ -24,6 +24,51 @@ class BuudyListTableViewController: UITableViewController {
     func zdl() -> AppDelegate {
         return UIApplication.sharedApplication().delegate as! AppDelegate
     }
+    
+    //好友上线
+    func isOn(user: WXUser) {
+        //逐条查找
+        for oldUser in userList {
+            //如果找到旧的用户状态
+            if oldUser.name == user.name {
+                oldUser.presence = Constants.Available
+                return
+            }
+
+        }
+        //如果找不到，添加新用户
+        userList.append(user)
+        
+        self.tableView.reloadData()
+        
+    }
+    //好友下线
+    func isOff(user: WXUser) {
+        //逐条查找
+        for oldUser in userList {
+            //如果找到旧的用户状态
+            if oldUser.name == user.name {
+                oldUser.presence = Constants.Unavailable
+                return
+            }
+            
+        }
+        //如果找不到，添加新用户
+        userList.append(user)
+        
+        self.tableView.reloadData()
+        
+    }
+    //收到消息
+    func newMessage(message: WXMessage) {
+        //如果消息有正文，加入到未读消息组
+        if (message.body != "") {
+            //则加入到未读消息列表
+            unreadMessages.append(message)
+            self.tableView.reloadData()
+        }
+    }
+    
 
     //登入
     func login(){
@@ -31,6 +76,10 @@ class BuudyListTableViewController: UITableViewController {
         unreadMessages.removeAll(keepCapacity: false)
         userList.removeAll(keepCapacity: false)
         
+        let myUserName = NSUserDefaults.standardUserDefaults().stringForKey(Constants.UserName)
+        self.navigationItem.title = myUserName! + "的好友"
+        self.navigationItem.title = myUserName! + "的好友"
+
         zdl().connect()
         myStatus.image = UIImage(named: Constants.OnlineIco)
         logged = true
@@ -63,7 +112,6 @@ class BuudyListTableViewController: UITableViewController {
             
             self.login()
             
-            self.navigationItem.title = myUserName! + "的好友"
             
         //其他情况，跳转到登录视图
         }else{
