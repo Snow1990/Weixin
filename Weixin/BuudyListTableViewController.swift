@@ -13,7 +13,11 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
 //    //已登入
 //    var logged = false
     //好友列表
-    var userList = [WXUser]()
+    var userList = [WXUser](){
+        didSet{
+            self.tableView.reloadData()
+        }
+    }
     //未读消息
     var unreadMessages = [WXMessage]()
     
@@ -46,6 +50,8 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
             myStatus.title = "在线"
         }
     }
+    
+    
     //好友上线
     func isOn(user: WXUser) {
         //逐条查找
@@ -53,6 +59,7 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
             //如果找到旧的用户状态
             if oldUser.name == user.name {
                 oldUser.presence = Constants.Available
+                self.tableView.reloadData()
                 return
             }
 
@@ -60,7 +67,7 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
         //如果找不到，添加新用户
         userList.append(user)
         
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
         
     }
     //好友下线
@@ -71,6 +78,8 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
             //如果找到旧的用户状态
             if oldUser.name == user.name {
                 oldUser.presence = Constants.Unavailable
+                self.tableView.reloadData()
+
                 return
             }
             
@@ -78,7 +87,7 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
         //如果找不到，添加新用户
         userList.append(user)
         
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
         
     }
     //收到消息
@@ -98,16 +107,9 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
         unreadMessages.removeAll(keepCapacity: false)
         userList.removeAll(keepCapacity: false)
         zdl().connect()
-//            let myUserName = NSUserDefaults.standardUserDefaults().stringForKey(Constants.UserName)
-            
-//            self.navigationItem.title = myUserName! + "的好友"
-        
-        
 
-//            myStatus.image = UIImage(named: Constants.OnlineIco)
-//            logged = true
         
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
 
         
         
@@ -116,10 +118,12 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
     //登出
     func logoff(){
         zdl().disConnect()
-//        myStatus.image = UIImage(named: Constants.OfflineIco)
-        myStatus.title = "离线"
 
-//        logged = false
+        myStatus.title = "离线"
+        for user in userList {
+            user.presence = Constants.Unavailable
+        }
+        
         
         self.tableView.reloadData()
 
@@ -129,11 +133,8 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        zdl().wxMessageDelegate = self
         zdl().wxUserDelegate = self
 
-//        //取用户名
-//        let myUserName = NSUserDefaults.standardUserDefaults().stringForKey(Constants.UserName)
         //取自动登录
         let aotoLogin = NSUserDefaults.standardUserDefaults().boolForKey(Constants.AutoLogin)
         
@@ -142,12 +143,14 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
             
             self.login()
             
-            
         //其他情况，跳转到登录视图
         }else{
             self.performSegueWithIdentifier(Constants.ToLoginSegue, sender: self)
         }
         
+    }
+    override func viewDidAppear(animated: Bool) {
+        zdl().wxMessageDelegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -212,80 +215,6 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
     }
     
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-    
-    
-    //获取正确的删除索引
-    func getRemoveIndex(user: WXUser, array: [WXMessage]) -> [Int]{
-        
-        var indexArray = [Int]()
-        var correctArray = [Int]()
-        
-        
-        //获取指定值在数组中的索引
-        for (index,_) in enumerate(array) {
-            if array[index].from.name == user.name {
-                indexArray.append(index)
-            }
-        }
-        
-        //计算正确的删除索引
-        for (index, originIndex) in enumerate(indexArray){
-            //指定值索引减去索引数组的索引
-            var correctIndex = originIndex - index
-            
-            //添加到正确的索引数组中
-            correctArray.append(correctIndex)
-        }
-        
-        return correctArray
-    }
-    
-    
-    //从数组中删除指定元素
-    func removeValueFromArray(user: WXUser, inout array: [WXMessage]){
-        
-        var correctArray = getRemoveIndex(user, array: array)
-        
-        //从原数组中删除指定元素
-        for index in correctArray{
-            array.removeAtIndex(index)
-        }
-        
-    }
 
     //获取总代理
     func zdl() -> AppDelegate {
@@ -312,7 +241,8 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
                 }
                 
                 //把相应的未读消息移除
-                self.removeValueFromArray(currentBuddy!, array: &unreadMessages)
+//                self.removeValueFromArray(currentBuddy!, array: &unreadMessages)
+                unreadMessages = unreadMessages.filter{ $0.from.name != self.currentBuddy!.name }
                 
                 self.tableView.reloadData()
             }

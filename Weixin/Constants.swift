@@ -14,6 +14,7 @@ class Constants{
     
     
     static let BListReusableCellID = "buddyListCell"
+    static let ChatListReusableCellID = "chatListCell"
     
     
     static let Available = "available"

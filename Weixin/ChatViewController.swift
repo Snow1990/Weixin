@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, WXMessageDelegate {
+class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, WXMessageDelegate {
 
     //当前聊天好友
     var toBuddy: WXUser!
@@ -26,11 +26,10 @@ class ChatViewController: UIViewController, WXMessageDelegate {
             //构建XML元素
             var xmlMessage = DDXMLElement.elementWithName("message") as! DDXMLElement
             
-            let myName = NSUserDefaults.standardUserDefaults().stringForKey(Constants.UserName)
             //增加属性
             xmlMessage.addAttributeWithName("type", stringValue: "chat")
-            xmlMessage.addAttributeWithName("to", stringValue: toBuddy.name)
-            xmlMessage.addAttributeWithName("from", stringValue: myName)
+            xmlMessage.addAttributeWithName("to", stringValue: toBuddy.fullName)
+            xmlMessage.addAttributeWithName("from", stringValue: zdl().myselfUser.fullName)
             
             //构建正文
             var body = DDXMLElement.elementWithName("body") as! DDXMLElement
@@ -46,10 +45,33 @@ class ChatViewController: UIViewController, WXMessageDelegate {
             messageTF.text = ""
             
             //保存自己的信息
-//            let myMsg = WXMessage(body: msgStr, from: <#WXUser#>)
-            
+            let myMsg = WXMessage(body: msgStr, from: zdl().myselfUser)
+            messages.append(myMsg)
+            self.tableView.reloadData()
             
         }
+    }
+    
+    func composing (sender: UITextField){
+        
+        //构建XML元素
+        var xmlMessage = DDXMLElement.elementWithName("message") as! DDXMLElement
+        
+        //增加属性
+        xmlMessage.addAttributeWithName("to", stringValue: toBuddy.fullName)
+        xmlMessage.addAttributeWithName("from", stringValue: zdl().myselfUser.fullName)
+        
+        //构建正在输入
+        var composing = DDXMLElement.elementWithName("composing") as! DDXMLElement
+        composing.addAttributeWithName("xmlns", stringValue: "http://jabber.org/protocol/chatstates")
+        
+        
+        xmlMessage.addChild(composing)
+        
+        //通过通道发送xml文本
+        zdl().xmppStream?.sendElement(xmlMessage)
+        
+
     }
 
     //收到消息
@@ -75,6 +97,8 @@ class ChatViewController: UIViewController, WXMessageDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         zdl().wxMessageDelegate = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
 
         // Do any additional setup after loading the view.
     }
@@ -83,6 +107,34 @@ class ChatViewController: UIViewController, WXMessageDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Table view data source
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var reuseableCell: UITableViewCell!
+        if let cell = tableView.dequeueReusableCellWithIdentifier(Constants.ChatListReusableCellID) as? UITableViewCell{
+            reuseableCell = cell
+        }else{
+            reuseableCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: Constants.ChatListReusableCellID)
+        }
+        
+        let msg = messages[indexPath.row]
+        
+        reuseableCell.textLabel?.text = msg.body
+        
+        
+        return reuseableCell
+    }
+    
     
     //获取总代理
     func zdl() -> AppDelegate {

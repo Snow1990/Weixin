@@ -28,6 +28,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="好友列表" id="0GY-PQ-h0W">
                         <barButtonItem key="leftBarButtonItem" enabled="NO" title="离线" id="blS-Os-U3a">
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="log:" destination="9aD-M9-q56" id="eIS-Aa-JbZ"/>
                             </connections>
