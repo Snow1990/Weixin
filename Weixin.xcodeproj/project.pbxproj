@@ -74,6 +74,8 @@
 		87A4BF631B1D9A8200E36140 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF621B1D9A8200E36140 /* MessageTableViewCell.swift */; };
 		87A4BF661B1D9E6000E36140 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF651B1D9E6000E36140 /* Extension.swift */; };
 		87A4BF681B1DB9F600E36140 /* InputToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF671B1DB9F600E36140 /* InputToolBar.swift */; };
+		87A4BF6A1B1DE14700E36140 /* BuddyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF691B1DE14700E36140 /* BuddyTableViewCell.swift */; };
+		87A4BF6C1B1DE36900E36140 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF6B1B1DE36900E36140 /* NotificationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +211,8 @@
 		87A4BF621B1D9A8200E36140 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		87A4BF651B1D9E6000E36140 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		87A4BF671B1DB9F600E36140 /* InputToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputToolBar.swift; sourceTree = "<group>"; };
+		87A4BF691B1DE14700E36140 /* BuddyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuddyTableViewCell.swift; sourceTree = "<group>"; };
+		87A4BF6B1B1DE36900E36140 /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -602,6 +606,8 @@
 			isa = PBXGroup;
 			children = (
 				87A4BF621B1D9A8200E36140 /* MessageTableViewCell.swift */,
+				87A4BF691B1DE14700E36140 /* BuddyTableViewCell.swift */,
+				87A4BF6B1B1DE36900E36140 /* NotificationView.swift */,
 				87A4BF671B1DB9F600E36140 /* InputToolBar.swift */,
 			);
 			name = View;
@@ -727,8 +733,10 @@
 				87A4BCB51B1C6BC300E36140 /* NSNumber+XMPP.m in Sources */,
 				87A4BCAF1B1C6BC300E36140 /* XMPPDigestMD5Authentication.m in Sources */,
 				87A4BCC61B1C6BC300E36140 /* XMPPTimer.m in Sources */,
+				87A4BF6C1B1DE36900E36140 /* NotificationView.swift in Sources */,
 				87A4BCBD1B1C6BC300E36140 /* XMPPParser.m in Sources */,
 				87A4BCB11B1C6BC300E36140 /* XMPPSCRAMSHA1Authentication.m in Sources */,
+				87A4BF6A1B1DE14700E36140 /* BuddyTableViewCell.swift in Sources */,
 				87A4BCC11B1C6BC300E36140 /* GCDMulticastDelegate.m in Sources */,
 				87A4A5101B1C4A6100E36140 /* AppDelegate.swift in Sources */,
 				87A4BF5D1B1C778E00E36140 /* WXUser.swift in Sources */,

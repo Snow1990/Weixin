@@ -46,6 +46,8 @@ class Constants{
     static let ChatSmileBtnIco = "chat_bottom_smile_nor"
     static let ChatAddBtnIco = "chat_bottom_up_nor"
     static let ChatTextfieldImg = "chat_bottom_textfield"
+    static let NotificationCircleImg = "计数"
+    static let NotificationEllipseImg = "计数02"
     
     //图像大小
     static let AvatarSize : CGSize = CGSize(width: 45, height: 45)
