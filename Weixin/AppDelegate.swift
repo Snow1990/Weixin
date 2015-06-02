@@ -16,9 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
 
     //通道
     var xmppStream: XMPPStream?
-    //通道是否开启
-    var isOpen = false
-    
+//    //通道是否开启
+//    var isOpen = false
+    var myselfUser = WXUser()
+    var wxMessageDelegate: WXMessageDelegate?
+    var wxUserDelegate: WXUserDelegate?
     
     //收到状态
     func xmppStream(sender: XMPPStream!, didReceivePresence presence: XMPPPresence!) {
@@ -28,13 +30,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
         //好友的状态
         let wxuser = WXUser(presence: presence)
         
-        if wxuser.name != myUserName {
+        if wxuser.name != myselfUser.name {
             if wxuser.isOnline {
-                wxuser.delegate?.isOn(wxuser)
+                wxUserDelegate?.isOn(wxuser)
             }else{
-                wxuser.delegate?.isOff(wxuser)
+                wxUserDelegate?.isOff(wxuser)
             }
         }
+//        if wxuser.name == myselfUser.name {
+//            if wxuser.isOnline {
+//                wxUserDelegate?.meOn(wxuser)
+//            }else{
+//                wxUserDelegate?.meOff(wxuser)
+//            }
+//        }else {
+//            if wxuser.isOnline {
+//                wxUserDelegate?.isOn(wxuser)
+//            }else{
+//                wxUserDelegate?.isOff(wxuser)
+//            }
+//        }
 
     }
     
@@ -43,25 +58,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
         if message.isChatMessage() {
             
             var msg = WXMessage(message: message)
-            msg.delegate?.newMessage(msg)
+            wxMessageDelegate?.newMessage(msg)
         }
     }
     
     
     //连接成功
     func xmppStreamDidConnect(sender: XMPPStream!) {
-        isOpen = true
-        
-        let password = NSUserDefaults.standardUserDefaults().stringForKey(Constants.Password)
-
-        
+//        isOpen = true
         //验证密码
-        xmppStream?.authenticateWithPassword(password, error: nil)
+        xmppStream?.authenticateWithPassword(myselfUser.password!, error: nil)
     }
     //验证成功
     func xmppStreamDidAuthenticate(sender: XMPPStream!) {
         //上线
         goOnline()
+        myselfUser.presence = Constants.Available
+        wxUserDelegate?.meOn(myselfUser)
+        
+    }
+    //验证失败
+    func xmppStream(sender: XMPPStream!, didNotAuthenticate error: DDXMLElement!) {
+        
+        xmppStream?.disconnect()
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: Constants.AutoLogin)
+
+        let alertView = UIAlertView(title: "警告", message: "用户名或密码错误。", delegate: nil,cancelButtonTitle: "确定")
+        alertView.show()
+        
+    }
+    //断开连接
+    func xmppStreamDidDisconnect(sender: XMPPStream!, withError error: NSError!) {
+        myselfUser.presence = Constants.Unavailable
     }
     
     
@@ -94,22 +122,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
             return true
         }
         
-        let userName = NSUserDefaults.standardUserDefaults().stringForKey(Constants.UserName)
-        let password = NSUserDefaults.standardUserDefaults().stringForKey(Constants.Password)
+        myselfUser.name = NSUserDefaults.standardUserDefaults().stringForKey(Constants.UserName)!
+        myselfUser.password = NSUserDefaults.standardUserDefaults().stringForKey(Constants.Password)
         let server = NSUserDefaults.standardUserDefaults().stringForKey(Constants.Server)
         
-        if (userName != nil && password != nil){
-            //通道的用户名
-            xmppStream?.myJID = XMPPJID.jidWithString(userName)
-            xmppStream?.hostName = server!
-            
-            xmppStream?.connectWithTimeout(5000, error: nil)
-            
-        }
+        //通道的用户名
+        xmppStream!.myJID = XMPPJID.jidWithString(myselfUser.fullName)
+        xmppStream!.hostName = server!
         
+        return xmppStream!.connectWithTimeout(5000, error: nil)
         
-        
-        return false
     }
     //断开连接
     func disConnect(){

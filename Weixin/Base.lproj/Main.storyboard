@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZBc-eK-gvi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--好友列表-->
@@ -26,7 +27,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="好友列表" id="0GY-PQ-h0W">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="blS-Os-U3a"/>
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="离线" id="blS-Os-U3a">
+                            <connections>
+                                <action selector="log:" destination="9aD-M9-q56" id="eIS-Aa-JbZ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="登录" id="bHE-hl-wIF">
                             <connections>
                                 <segue destination="WjN-eN-vKW" kind="presentation" identifier="toLoginSegue" id="7bD-FX-g6h"/>
@@ -128,7 +133,7 @@
                     <connections>
                         <outlet property="aotoLoginSwitch" destination="Sk1-iP-0yD" id="4MX-Ed-gCA"/>
                         <outlet property="doneButton" destination="c1m-wF-Z40" id="E7o-3T-G2o"/>
-                        <outlet property="passwordTF" destination="hCb-Uu-Bhg" id="kEW-5H-xrc"/>
+                        <outlet property="passwordTF" destination="KcN-b1-iuX" id="fdW-1W-Zu5"/>
                         <outlet property="serverTF" destination="hCb-Uu-Bhg" id="stA-pI-viU"/>
                         <outlet property="userNameTF" destination="LFi-Fp-gAd" id="q50-rR-WJZ"/>
                     </connections>
@@ -187,24 +192,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pyk-fw-8Jq">
-                                <rect key="frame" x="16" y="270" width="568" height="30"/>
+                                <rect key="frame" x="16" y="550" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ses-yI-lva">
+                                <rect key="frame" x="16" y="64" width="568" height="401"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ses-yI-lva" firstAttribute="leading" secondItem="bHw-UB-InJ" secondAttribute="leadingMargin" id="KH6-jQ-cUk"/>
+                            <constraint firstItem="Ses-yI-lva" firstAttribute="top" secondItem="IDe-v5-Ctl" secondAttribute="bottom" id="eK9-ng-vnL"/>
+                            <constraint firstItem="6Bs-o3-ahu" firstAttribute="top" secondItem="Ses-yI-lva" secondAttribute="bottom" constant="135" id="gS6-y5-6TS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ses-yI-lva" secondAttribute="trailing" id="s3m-3c-gQk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="聊天" id="GXv-wW-yyb">
                         <barButtonItem key="rightBarButtonItem" title="发送" id="vdI-rb-u55">
                             <connections>
-                                <action selector="send:" destination="UOE-hu-Fo8" id="Xya-ka-a4V"/>
+                                <action selector="send:" destination="UOE-hu-Fo8" id="bXd-Fv-1Nd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="messageTF" destination="Pyk-fw-8Jq" id="2Ne-gE-LlE"/>
+                        <outlet property="tableView" destination="Ses-yI-lva" id="Sf4-QU-bom"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ynv-93-gX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2499" y="1045"/>
+            <point key="canvasLocation" x="2497" y="1037"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fQP-pg-mJy">

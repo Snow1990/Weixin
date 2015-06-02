@@ -13,6 +13,8 @@ import Foundation
 protocol WXUserDelegate{
     func isOn(user:WXUser)
     func isOff(user:WXUser)
+    func meOn(user:WXUser)
+//    func meOff(user:WXUser)
     
 }
 
@@ -21,7 +23,10 @@ protocol WXUserDelegate{
 class WXUser {
     var name = ""
     var presence = ""
-    var domain = ""
+    var domain = Constants.Domain
+    //用户为自己才用的属性
+    var password: String?
+    
     var isOnline: Bool{
         if self.presence == Constants.Available{
             return true
@@ -33,7 +38,7 @@ class WXUser {
         return name + "@" + domain
     }
 
-    var delegate: WXUserDelegate?
+
     
     
     init(){}

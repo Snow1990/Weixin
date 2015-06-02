@@ -18,6 +18,7 @@ class Constants{
     
     static let Available = "available"
     static let Unavailable = "unavailable"
+    static let Domain = "mymacbookpro.local"
 
     
     static let UserName = "weixinUserName"

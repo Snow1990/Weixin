@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     
     
     var requireLogin = false
+
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var serverTF: UITextField!

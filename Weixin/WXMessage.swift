@@ -20,12 +20,16 @@ class WXMessage{
     var from: WXUser!
     var isComposing = false
     var isDelay = false
-    var delegate: WXMessageDelegate?
+    
     
     init(){}
     
+    init(body: String, from: WXUser) {
+        self.body = body
+        self.from = from
+    }
+    
     init(message: XMPPMessage){
-        self.body = message.body()
         
         //正在输入
         if message.elementForName("composing") != nil {
