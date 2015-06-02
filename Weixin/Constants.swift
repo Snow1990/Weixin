@@ -41,8 +41,11 @@ class Constants{
     static let ChatToBgNormalImg = "chatto_bg_normal"
     static let ChatFromBgNormalImg = "chatfrom_bg_normal"
     static let ChatBgDefaultImg = "chat_bg_default"
-    
-
+    static let ChatToolBarBgImg = "toolbar_bottom_bar"
+    static let ChatVoiceBtnIco = "chat_bottom_voice_nor"
+    static let ChatSmileBtnIco = "chat_bottom_smile_nor"
+    static let ChatAddBtnIco = "chat_bottom_up_nor"
+    static let ChatTextfieldImg = "chat_bottom_textfield"
     
     //图像大小
     static let AvatarSize : CGSize = CGSize(width: 45, height: 45)

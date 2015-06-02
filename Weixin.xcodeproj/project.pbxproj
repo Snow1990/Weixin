@@ -73,6 +73,7 @@
 		87A4BF5D1B1C778E00E36140 /* WXUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF5C1B1C778E00E36140 /* WXUser.swift */; };
 		87A4BF631B1D9A8200E36140 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF621B1D9A8200E36140 /* MessageTableViewCell.swift */; };
 		87A4BF661B1D9E6000E36140 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF651B1D9E6000E36140 /* Extension.swift */; };
+		87A4BF681B1DB9F600E36140 /* InputToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4BF671B1DB9F600E36140 /* InputToolBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,6 +208,7 @@
 		87A4BF5C1B1C778E00E36140 /* WXUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WXUser.swift; sourceTree = "<group>"; };
 		87A4BF621B1D9A8200E36140 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		87A4BF651B1D9E6000E36140 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		87A4BF671B1DB9F600E36140 /* InputToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputToolBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -600,6 +602,7 @@
 			isa = PBXGroup;
 			children = (
 				87A4BF621B1D9A8200E36140 /* MessageTableViewCell.swift */,
+				87A4BF671B1DB9F600E36140 /* InputToolBar.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				87A4BCCA1B1C6BC300E36140 /* DDFileLogger.m in Sources */,
 				87A4BCBC1B1C6BC300E36140 /* XMPPModule.m in Sources */,
 				87A4BCB71B1C6BC300E36140 /* XMPPConstants.m in Sources */,
+				87A4BF681B1DB9F600E36140 /* InputToolBar.swift in Sources */,
 				87A4BCB01B1C6BC300E36140 /* XMPPPlainAuthentication.m in Sources */,
 				87A4BCB21B1C6BC300E36140 /* XMPPXFacebookPlatformAuthentication.m in Sources */,
 				87A4A5131B1C4A6100E36140 /* Weixin.xcdatamodeld in Sources */,

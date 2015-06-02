@@ -15,8 +15,11 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     //聊天消息
     var messages = [WXMessage]()
     
+    var inputToolbar: InputToolBar = InputToolBar(frame: CGRectMake(0, UIScreen.mainScreen().bounds.height - 44, UIScreen.mainScreen().bounds.width, 44))
+    
     @IBOutlet weak var messageTF: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    
     @IBAction func send(sender: UIBarButtonItem) {
         //获取聊天框内容
         let msgStr = messageTF.text
@@ -101,6 +104,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
+        
+        self.view.addSubview(inputToolbar)
 
     }
 
