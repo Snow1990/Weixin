@@ -17,7 +17,6 @@ class InputToolBar: UIView {
     var smileBtn = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
     var addBtn = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
     
-    
     override init(frame: CGRect) {
         
         super.init(frame: frame)
@@ -54,8 +53,6 @@ class InputToolBar: UIView {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-
     
     /*
     // Only override drawRect: if you perform custom drawing.

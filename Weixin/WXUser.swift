@@ -8,18 +8,16 @@
 
 import Foundation
 
-
 //用户状态委托
 protocol WXUserDelegate{
     func isOn(user:WXUser)
     func isOff(user:WXUser)
     func meOn(user:WXUser)
-    
 }
-
 
 //微信用户
 class WXUser {
+    
     var name = ""
     var presence = ""
     var domain = Constants.Domain
@@ -37,9 +35,6 @@ class WXUser {
         return name + "@" + domain
     }
 
-
-    
-    
     init(){}
     
     init(presence: XMPPPresence){
@@ -48,6 +43,7 @@ class WXUser {
         self.presence = presence.type()
 
     }
+    
     init(message: XMPPMessage){
         self.name = message.from().user
         self.domain = message.from().domain

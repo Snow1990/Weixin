@@ -16,8 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
 
     //通道
     var xmppStream: XMPPStream?
-//    //通道是否开启
-//    var isOpen = false
     var myselfUser = WXUser()
     var wxMessageDelegate: WXMessageDelegate?
     var wxUserDelegate: WXUserDelegate?
@@ -35,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
                 wxUserDelegate?.isOff(wxuser)
             }
         }
-
     }
     
     //收到消息
@@ -47,12 +44,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
         }
     }
     
-    
     //连接成功
     func xmppStreamDidConnect(sender: XMPPStream!) {
         //验证密码
         xmppStream?.authenticateWithPassword(myselfUser.password!, error: nil)
     }
+    
     //验证成功
     func xmppStreamDidAuthenticate(sender: XMPPStream!) {
         //上线
@@ -61,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
         wxUserDelegate?.meOn(myselfUser)
         
     }
+    
     //验证失败
     func xmppStream(sender: XMPPStream!, didNotAuthenticate error: DDXMLElement!) {
         
@@ -71,12 +69,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
         alertView.show()
         
     }
+    
     //断开连接
     func xmppStreamDidDisconnect(sender: XMPPStream!, withError error: NSError!) {
         myselfUser.presence = Constants.Unavailable
     }
-    
-    
     
     //建立通道
     func buildStream(){
@@ -95,7 +92,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
         var presence = XMPPPresence(type: Constants.Unavailable)
         xmppStream?.sendElement(presence)
     }
-    
     
     //连接服务器
     func connect() -> Bool{
@@ -117,6 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, XMPPStreamDelegate {
         return xmppStream!.connectWithTimeout(5000, error: nil)
         
     }
+    
     //断开连接
     func disConnect(){
         goOffline()

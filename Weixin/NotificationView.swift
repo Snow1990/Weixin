@@ -36,14 +36,11 @@ class NotificationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-//    func addNotification(){
-//        notificationCount++
-//        self.updateImageView()
-//    }
     func addNotifications(n:Int){
         notificationCount = n
         self.updateImageView()
     }
+    
     func removeNotifications(){
         notificationCount = 0
         self.updateImageView()
@@ -52,9 +49,7 @@ class NotificationView: UIView {
     func updateImageView(){
         
         let image = UIImage(named: Constants.NotificationCircleImg)
-//        let image2 = UIImage(named: Constants.NotificationEllipseImg)
         
-//        imageView.image = UIImage(named: Constants.NotificationCircleImg)
         if notificationCount >= 100{
             imageView.image = image
             countLable.text = "99+"
@@ -65,7 +60,6 @@ class NotificationView: UIView {
             imageView.image = nil
             countLable.text = ""
         }
-        
     }
 }
 

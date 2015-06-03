@@ -10,7 +10,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    
     var requireLogin = false
 
     @IBOutlet weak var userNameTF: UITextField!
@@ -22,8 +21,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: Constants.LoginBGImg)!)
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +28,6 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     
     // MARK: - Navigation
 
@@ -48,10 +44,5 @@ class LoginViewController: UIViewController {
             //同步用户配置
             NSUserDefaults.standardUserDefaults().synchronize()
         }
-        
-        
-        
     }
-
-
 }

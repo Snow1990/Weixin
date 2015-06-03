@@ -30,6 +30,5 @@ extension UILabel {
             attributes: [NSFontAttributeName: font],
             context: nil).size
         return size
-//        return CGSizeMake(size.width + 15, size.height + 20)
     }
 }

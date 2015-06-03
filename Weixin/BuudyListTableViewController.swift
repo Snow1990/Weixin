@@ -151,15 +151,12 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
         var reuseableCell: BuddyTableViewCell!
         if let cell = tableView.dequeueReusableCellWithIdentifier(Constants.BuddyListReusableCellID) as? BuddyTableViewCell{
             reuseableCell = cell
         }else{
             reuseableCell = BuddyTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: Constants.BuddyListReusableCellID)
         }
-        
-        
         
         //取得好友信息
         let user = userList[indexPath.row]
@@ -176,7 +173,6 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
         }
         reuseableCell.notificationView?.addNotifications(unreads)
         
-        
         //根据好友状态，切换单元格图像
         if user.isOnline {
             reuseableCell.imageView?.image = UIImage(named: Constants.OnlineIco)
@@ -185,7 +181,6 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
             reuseableCell.imageView?.image = UIImage(named: Constants.OfflineIco)
         }
 
-        
         return reuseableCell
     }
     
@@ -238,15 +233,12 @@ class BuudyListTableViewController: UITableViewController, WXUserDelegate, WXMes
         //如果点击了登录按钮
         if let source = segue.sourceViewController as? LoginViewController {
             
-                if source.requireLogin{
-                    //注销前一个用户
-                    logoff()
-                    //登录
-                    login()
-                }
-            
+            if source.requireLogin{
+                //注销前一个用户
+                logoff()
+                //登录
+                login()
+            }
         }
-        
-        
     }
 }

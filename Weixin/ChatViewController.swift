@@ -10,7 +10,6 @@ import UIKit
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, WXMessageDelegate {
 
-    
     //当前聊天好友
     var toBuddy: WXUser!
     //聊天消息
@@ -65,13 +64,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         var composing = DDXMLElement.elementWithName("composing") as! DDXMLElement
         composing.addAttributeWithName("xmlns", stringValue: "http://jabber.org/protocol/chatstates")
         
-        
         xmlMessage.addChild(composing)
         
         //通过通道发送xml文本
         zdl().xmppStream?.sendElement(xmlMessage)
-        
-
     }
 
     //收到消息
@@ -95,8 +91,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
 
-    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.navigationItem.title = toBuddy.name
         
@@ -115,14 +111,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.view.addSubview(tableView)
         self.view.addSubview(inputToolbar)
-        scrollToLastRow()
         
+        scrollToLastRow()
         
         //keyboard notitication
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -153,7 +148,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         reuseableCell.selectionStyle = UITableViewCellSelectionStyle.None
         reuseableCell.setupMessageCell(msg)
         
-        
         return reuseableCell
     }
     
@@ -173,9 +167,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         scrollToLastRow()
 
-        
-        
-//        textField.resignFirstResponder()
         return false
     }
     
@@ -192,8 +183,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         UIView.animateWithDuration(duration, animations: { () -> Void in
             self.tableView.frame = CGRectMake(0, 0, screenRect.width, screenRect.height - self.inputToolbar.frame.height - keyboardFrame.height)
             self.inputToolbar.frame.origin.y -= keyboardFrame.height
-//            self.inputToolbar.frame = CGRectMake(0, UIScreen.mainScreen().bounds.height-44-keyboardFrame.height, UIScreen.mainScreen().bounds.width, 44)
         })
+        
         scrollToLastRow()
     }
     
@@ -208,9 +199,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         UIView.animateWithDuration(duration, animations: { () -> Void in
             self.tableView.frame = CGRectMake(0, 0, screenRect.width, screenRect.height - self.inputToolbar.frame.height)
             self.inputToolbar.frame.origin.y += keyboardFrame.height
-
-//            self.inputToolbar.frame = CGRectMake(0, UIScreen.mainScreen().bounds.height-44, UIScreen.mainScreen().bounds.width, 44)
         })
+        
         scrollToLastRow()
     }
     

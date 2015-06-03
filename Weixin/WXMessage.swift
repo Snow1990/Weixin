@@ -13,14 +13,13 @@ protocol WXMessageDelegate{
     func newMessage(message: WXMessage)
 }
 
-
 //消息
 class WXMessage{
+    
     var body = ""
     var from: WXUser!
     var isComposing = false
     var isDelay = false
-    
     
     init(){}
     
